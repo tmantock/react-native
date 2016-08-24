@@ -1,4 +1,7 @@
 import React, { AppRegistry, View, Text, StyleSheet } from 'react-native';
+import DayItems from './src/day-item';
+
+const Days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Saturday'];
 
 const Weekdays = React.createClass({
   render: function() {
@@ -7,6 +10,7 @@ const Weekdays = React.createClass({
         <Text style={styles.centerText}>
           Days of the week:
         </Text>
+        <DayItems />
       </View>
     )
   }
