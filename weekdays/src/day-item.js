@@ -3,7 +3,7 @@ import React, { Text, StyleSheet } from 'react-native';
 const DayItems = React.createClass({
   render: function() {
     return <Text style={styles.day}>
-      A day of the week
+      {this.props.day}
     </Text>
   }
 });
