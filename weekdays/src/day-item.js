@@ -15,10 +15,11 @@ const DayItems = React.createClass({
     }
   },
   color: function () {
+    let opacity;
     if(this.props.daysUntil == 0){
-      var opacity = 1
+      opacity = 1
     } else{
-      var opacity = 1 / this.props.daysUntil;
+      opacity = 1 / this.props.daysUntil;
     }
     return `rgba(0,0,0, ${opacity})`;
   },
