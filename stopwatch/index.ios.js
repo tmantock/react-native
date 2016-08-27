@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, AppRegistry, StyleSheet } from 'react-native';
+import { Text, View, AppRegistry, StyleSheet, TouchableHighlight } from 'react-native';
 
 const StopWatch = React.createClass({
   render: function() {
@@ -29,11 +29,11 @@ const StopWatch = React.createClass({
 },
 startStopButton: function () {
   return (
-    <View>
+    <TouchableHighlight underlayColor="gray">
       <Text>
         Start
       </Text>
-    </View>
+    </TouchableHighlight>
   );
 },
 lapButton: function () {
