@@ -29,7 +29,7 @@ const StopWatch = React.createClass({
 },
 startStopButton: function () {
   return (
-    <TouchableHighlight underlayColor="gray">
+    <TouchableHighlight underlayColor="gray" onPress={this.handleStartPress}>
       <Text>
         Start
       </Text>
@@ -44,6 +44,9 @@ lapButton: function () {
       </Text>
     </View>
   );
+},
+handleStartPress: function () {
+  console.log('Start was pressed');
 },
 border: function (color) {
   return {
