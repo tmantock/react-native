@@ -83,10 +83,13 @@ handleLapPress: function () {
 },
 renderLaps: function () {
   return this.state.lapArray.map((lap, index) => {
-    return <View key={lap}>
-    <Text>
-      Lap #{index + 1}: {formatTime(lap)}
-    </Text>
+    return <View key={lap} style={styles.lap}>
+      <Text style={styles.lapText}>
+        Lap #{index + 1}:
+      </Text>
+      <Text style={styles.lapText}>
+        {formatTime(lap)}
+      </Text>
     </View>
   });
 }
@@ -130,6 +133,13 @@ const styles = StyleSheet.create({
   },
   stopButton: {
     borderColor: '#CC0000'
+  },
+  lap: {
+    justifyContent: 'space-around',
+    flexDirection: 'row'
+  },
+  lapText: {
+    fontSize: 30
   }
 });
 
