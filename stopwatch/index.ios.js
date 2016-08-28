@@ -129,7 +129,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   startButton: {
-    borderColor: '#00CC00'
+    borderColor: '#00CC00',
+    backgrounColor: '#00CC00'
   },
   stopButton: {
     borderColor: '#CC0000'
