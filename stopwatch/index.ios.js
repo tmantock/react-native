@@ -133,7 +133,8 @@ const styles = StyleSheet.create({
     backgrounColor: '#00CC00'
   },
   stopButton: {
-    borderColor: '#CC0000'
+    borderColor: '#CC0000',
+    backgrounColor: '#CC0000'
   },
   lap: {
     justifyContent: 'space-around',
