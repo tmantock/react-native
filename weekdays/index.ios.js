@@ -6,6 +6,7 @@ const Weekdays = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
+        <Text>Hey Github!</Text>
         {this.days()}
       </View>
     )
