@@ -7,6 +7,7 @@ const Weekdays = React.createClass({
     return (
       <View style={styles.container}>
         <Text>Hey Github!</Text>
+        <Text>Would you like to see the days of the week and the current day?</Text>
         {this.days()}
       </View>
     )
