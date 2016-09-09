@@ -6,8 +6,8 @@ const Weekdays = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
+        <Text>git add .</Text>
         <Text>git commit -m "Hey Github!"</Text>
-        <Text>Would you like to see the days of the week and the current day?</Text>
         <Text>What happened on Monday?</Text>
         <Text>A lot happened on Monday. Sorry for the lack of code.</Text>
         {this.days()}
