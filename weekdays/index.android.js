@@ -18,6 +18,9 @@ class weekdays extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
+        <Text>
+          More FLuff for React
+        </Text>
         <Text style={styles.instructions}>
           To get started, edit index.android.js
         </Text>
