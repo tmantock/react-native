@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppRegistry, MapView, View, StyleSheet } from 'react-native';
+import { AppRegistry, MapView, View, StyleSheet, Text } from 'react-native';
 var Api = require('./src/api');
 
 var Weather = React.createClass({
@@ -22,11 +22,18 @@ var Weather = React.createClass({
         }];
 
         return (
-            <MapView
-                annotations={[this.state.pin]} 
-                onRegionChangeComplete={this.onRegionChangeComplete}
-                style={styles.map}>
-            </MapView>
+            <View style={styles.container}>
+                <MapView
+                    annotations={[this.state.pin]} 
+                    onRegionChangeComplete={this.onRegionChangeComplete}
+                    style={styles.map}>
+                </MapView>
+                <View style={styles.textWrapper}>
+                    <Text style={styles.text}>{this.state.city}</Text>
+                    <Text style={styles.text}>{this.state.temperature}</Text>
+                    <Text style={styles.text}>{this.state.description}</Text>
+                </View>
+            </View>
         );
     },
 
@@ -40,15 +47,28 @@ var Weather = React.createClass({
 
         Api(region.latitude, region.longitude)
             .then((data) => {
-                console.log(data);
                 this.setState(data);
             });
     }
 });
 
 var styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'stretch',
+        backgroundColor: '#F5FCFF',
+    },
     map: {
-        flex: 1
+        flex: 2,
+        marginTop: 30,
+    },
+    textWrapper: {
+        flex: 1,
+        alignItems: 'center'
+    },
+    text: {
+        fontSize: 30,
     }
 });
 

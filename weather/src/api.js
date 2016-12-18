@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var rootUrl = 'http://api.openweathermap.org/data/2.5/weather?appid=3ada3a03e32b69ed8439a913afab37e2';
 
 var kelvinToFarenheit = function(kelvin){
@@ -17,9 +18,9 @@ module.exports = function(latitude, longitude) {
         //get the data from the json promise
         .then((response) => {
             return {
-                city: response.name,
+                city: _.capitalize(response.name),
                 temperature: kelvinToFarenheit(response.main.temp),
-                description: response.weather[0].description,
+                description: _.capitalize(response.weather[0].description),
             }
         });
 }
