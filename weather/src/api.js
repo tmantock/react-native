@@ -1,4 +1,4 @@
-var rootUrl = 'http://api.openweathermap.org/data/2.5/weather?APPID=3ada3a03e32b69ed8439a913afab37e2';
+var rootUrl = 'http://api.openweathermap.org/data/2.5/weather?appid=3ada3a03e32b69ed8439a913afab37e2';
 
 var kelvinToFarenheit = function(kelvin){
     return Math.round((kelvin - 273.15) * 1.8 +32) + ' ˚F'
@@ -7,15 +7,19 @@ var kelvinToFarenheit = function(kelvin){
 module.exports = function(latitude, longitude) {
     var url = `${rootUrl}&lat=${latitude}&lon=${longitude}`;
 
-    fetch(url)
-        .then(function(response){
-            return response.json()
+    return fetch(url)
+        .then((response) => {
+            //must call json to get access to data
+            //but data is not returned by json it returns a promis
+            return response.json();
         })
-        .then(function(json){
+        .catch((error) => console.warn("fetch error: ", error))
+        //get the data from the json promise
+        .then((response) => {
             return {
-                city: json.city,
-                temperature: kelvinToFarenheit(json.main.temp),
-                description: json.weather[0].description,
+                city: response.name,
+                temperature: kelvinToFarenheit(response.main.temp),
+                description: response.weather[0].description,
             }
         });
 }

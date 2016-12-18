@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppRegistry, MapView, View, StyleSheet } from 'react-native';
+var Api = require('./src/api');
 
 var Weather = React.createClass({
     getInitialState: function() {
@@ -7,7 +8,10 @@ var Weather = React.createClass({
             pin: {
                 latitude: 0,
                 longitude: 0
-            }
+            },
+            city: '',
+            temperature: '',
+            description: ''
         };
     },
 
@@ -33,6 +37,12 @@ var Weather = React.createClass({
                 latitude: region.latitude
             }
         });
+
+        Api(region.latitude, region.longitude)
+            .then((data) => {
+                console.log(data);
+                this.setState(data);
+            });
     }
 });
 
