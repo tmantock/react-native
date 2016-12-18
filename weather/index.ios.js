@@ -2,6 +2,15 @@ import React from 'react';
 import { AppRegistry, MapView, View, StyleSheet } from 'react-native';
 
 var Weather = React.createClass({
+    getInitialState: function() {
+        return {
+            pin: {
+                latitude: 0,
+                longitude: 0
+            }
+        };
+    },
+
     render: function () {
         var pins = [{
             latitude: 37,
@@ -10,14 +19,20 @@ var Weather = React.createClass({
 
         return (
             <MapView
-                annotations={pins} 
+                annotations={[this.state.pin]} 
                 onRegionChangeComplete={this.onRegionChangeComplete}
                 style={styles.map}>
             </MapView>
         );
     },
-    onRegionChangeComplete: function(region) {
 
+    onRegionChangeComplete: function(region) {
+        this.setState({
+            pin:{
+                longitude: region.longitude,
+                latitude: region.latitude
+            }
+        });
     }
 });
 
